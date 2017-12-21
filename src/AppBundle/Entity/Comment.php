@@ -48,6 +48,10 @@ class Comment
      */
     private $post;
 
+    public function getPost() {
+        return $this->post;
+    }
+
 
     /**
      * Get id
