@@ -42,6 +42,12 @@ class Comment
      */
     private $content;
 
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Post", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $post;
+
 
     /**
      * Get id

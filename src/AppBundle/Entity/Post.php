@@ -42,6 +42,11 @@ class Post
      */
     private $thumbnail;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="Posts")
+     */
+    private $category;
+
 
     /**
      * Get id
