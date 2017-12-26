@@ -38,9 +38,20 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="thumbnail", type="string", length=255)
+     * @ORM\Column(name="thumbnail", type="string", length=255, nullable=true)
      */
     private $thumbnail;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     */
+    private $comments;
+
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="Posts")
@@ -138,6 +149,25 @@ class Post
     public function getThumbnail()
     {
         return $this->thumbnail;
+    }
+
+    const SERVER_PATH_TO_IMAGE_FOLDER = '/web/uploads';
+
+    public function upload()
+    {
+        if (null === $this->getThumbnail()) {
+            return;
+        }
+
+        $this->getThumbnail()->move(
+            self::SERVER_PATH_TO_IMAGE_FOLDER,
+            $this->getThumbnail()->getClientOriginalName()
+        );
+
+        $this->thumbnail = $this->getThumbnail()->getClientOriginalName();
+
+        $this->setThumbnail(null);
+
     }
 }
 
