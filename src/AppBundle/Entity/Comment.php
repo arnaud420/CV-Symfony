@@ -43,13 +43,18 @@ class Comment
     private $content;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Post", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Post", inversedBy="comments", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $post;
 
     public function getPost() {
         return $this->post;
+    }
+
+    public function setPost($post)
+    {
+        $this->post = $post;
     }
 
 

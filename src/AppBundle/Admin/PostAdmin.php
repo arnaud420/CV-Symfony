@@ -14,10 +14,7 @@ class PostAdmin extends AbstractAdmin
         $formMapper
             ->with('Content')
             ->add('title', 'text')
-            ->add('content', 'sonata_simple_formatter_type', array(
-                'format' => 'markdown',
-                'ckeditor_context' => 'default', // optional
-            ))
+            ->add('content', 'textarea')
             ->add('thumbnail', 'text')
 
             ->end()

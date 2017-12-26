@@ -20,9 +20,15 @@ class CategoryController extends Controller
             ->getRepository('AppBundle:Category')
             ->find($category_id);
 
+        if (!$category) {
+            throw $this->createNotFoundException('Unable to find category.');
+        }
+
+
         $posts = $category->getPosts();
 
-        return $this->render('blog/index.html.twig', [
+        return $this->render('category/index.html.twig', [
+            'category' => $category,
             'posts' => $posts
         ]);
     }
