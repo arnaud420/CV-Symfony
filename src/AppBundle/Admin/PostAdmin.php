@@ -15,7 +15,6 @@ class PostAdmin extends AbstractAdmin
             ->with('Content')
             ->add('title', 'text')
             ->add('content', 'textarea')
-            ->add('thumbnail', 'text')
 
             ->end()
 
@@ -40,7 +39,6 @@ class PostAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('title')
             ->addIdentifier('content')
-            ->addIdentifier('thumbnail')
         ;
     }
 }

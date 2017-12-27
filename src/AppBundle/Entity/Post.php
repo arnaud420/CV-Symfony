@@ -37,13 +37,6 @@ class Post
     private $content;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="thumbnail", type="string", length=255, nullable=true)
-     */
-    private $thumbnail;
-
-    /**
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
      */
     private $comments;
@@ -51,6 +44,7 @@ class Post
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getComments()
@@ -58,6 +52,15 @@ class Post
         return $this->comments;
     }
 
+    /**
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="post")
+     */
+    private $images;
+
+    public function getImages()
+    {
+        return $this->images;
+    }
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="Posts")
@@ -73,7 +76,6 @@ class Post
     {
         return $this->category;
     }
-
 
     /**
      * Get id
@@ -133,47 +135,5 @@ class Post
         return $this->content;
     }
 
-    /**
-     * Set thumbnail
-     *
-     * @param string $thumbnail
-     *
-     * @return Post
-     */
-    public function setThumbnail($thumbnail)
-    {
-        $this->thumbnail = $thumbnail;
-
-        return $this;
-    }
-
-    /**
-     * Get thumbnail
-     *
-     * @return string
-     */
-    public function getThumbnail()
-    {
-        return $this->thumbnail;
-    }
-
-    const SERVER_PATH_TO_IMAGE_FOLDER = '/web/uploads';
-
-    public function upload()
-    {
-        if (null === $this->getThumbnail()) {
-            return;
-        }
-
-        $this->getThumbnail()->move(
-            self::SERVER_PATH_TO_IMAGE_FOLDER,
-            $this->getThumbnail()->getClientOriginalName()
-        );
-
-        $this->thumbnail = $this->getThumbnail()->getClientOriginalName();
-
-        $this->setThumbnail(null);
-
-    }
 }
 
