@@ -14,8 +14,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Image
 {
-    const SERVER_PATH_TO_IMAGE_FOLDER = '../../../web/uploads';
-
     /**
      * @var int
      *
@@ -125,7 +123,7 @@ class Image
         }
 
         $this->getFile()->move(
-            self::SERVER_PATH_TO_IMAGE_FOLDER,
+            __DIR__ . '/../../../web/uploads',
             $this->getFile()->getClientOriginalName()
         );
 
