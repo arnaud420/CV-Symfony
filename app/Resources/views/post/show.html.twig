@@ -15,6 +15,13 @@
             <p>Aucun commentaire</p>
         {% endfor %}
 
+        {% for image in images %}
+            <img src="{{asset('uploads/'~image.name)}}">
+            <p>{{ image.name }}</p>
+        {% else %}
+            <p>Aucun commentaire</p>
+        {% endfor %}
+
 
         {{ form_start(form) }}
         {{ form_widget(form) }}
