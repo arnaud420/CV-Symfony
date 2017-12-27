@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Comment;
+use AppBundle\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,9 +27,23 @@ class PostController extends Controller
 
         $comments = $post->getComments();
 
+        $comment = new Comment();
+        $comment->setPost($post);
+
+        $form = $this->createForm(CommentType::class, $comment);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        {
+            $em->persist($comment);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('post_show', ['post_id' => $post->getId()]));
+        }
+
         return $this->render('post/show.html.twig', [
             'post' => $post,
-            'comments' => $comments
+            'comments' => $comments,
+            'form' => $form->createView()
         ]);
     }
 }
