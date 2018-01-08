@@ -18,7 +18,7 @@ class CommentType extends AbstractType
             ->add('name', TextType::class)
             ->add('email', EmailType::class)
             ->add('content', TextareaType::class)
-            ->add('save', SubmitType::class)
+            ->add('save', SubmitType::class, ['label' => 'Poster'])
         ;
     }
 

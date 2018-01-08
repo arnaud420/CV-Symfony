@@ -1,0 +1,64 @@
+main#home .name-container {
+    height: 60vh;
+    background-color: black;
+    color: white;
+}
+main#home h1 {
+    font-size: 6rem;
+    margin: 2rem 0;
+    font-weight: bold;
+}
+main#home h2 {
+    font-size: 3rem;
+}
+main#home .cat-container {
+    height: 40vh;
+    background-color: white;
+}
+main#home .cat-container.row {
+    margin: 0;
+}
+main#home .col.d-flex.justify-content-center.align-items-center {
+    transition: .3s ease-in-out;
+    color: black;
+    text-transform: uppercase;
+}
+main#home .col.d-flex.justify-content-center.align-items-center:hover {
+    background-color: black;
+    color: white;
+    opacity: .8;
+}
+
+section#category header,
+section#post header{
+    height: 10rem;
+    background-color: black;
+    color: white;
+}
+section#category header .row.justify-content-center.align-items-center,
+section#post header .row.justify-content-center.align-items-center,
+div.container {
+    height: 100%;
+}
+.card-img-top {
+    height: 200px;
+}
+article.col-12.col-md-4 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+a {
+    color: black;
+    transition: .3s;
+}
+a:hover {
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}

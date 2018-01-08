@@ -1,9 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<main>
-    <div class="container">
+<main id="home">
+    <div class="name-container d-flex justify-content-center
+     align-items-center flex-column">
         <h1>Arnaud Lafon</h1>
+        <h2>Développeur web</h2>
+    </div>
+
+    <div class="cat-container row">
+        {% for category in categories %}
+            <a href="{{ path('category_show', {'category_id': category.id}) }}"
+               class="col d-flex justify-content-center
+                    align-items-center">
+                <h3>
+                    {{ category.name }}
+                </h3>
+            </a>
+        {% endfor %}
     </div>
 </main>
 {% endblock %}
