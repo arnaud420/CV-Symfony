@@ -2,11 +2,61 @@
 
 {% block body %}
 <main id="home">
-    <div class="name-container d-flex justify-content-center
+    <section class="name-container d-flex justify-content-center
      align-items-center flex-column">
-        <h1>Arnaud Lafon</h1>
-        <h2>Développeur web</h2>
-    </div>
+        <header class="text-center">
+            <h1>Arnaud Lafon</h1>
+            <h2>Développeur web</h2>
+        </header>
+    </section>
+
+    <section class="container section">
+        <header>
+            <h2 class="title red">Qui je suis</h2>
+        </header>
+
+        <article>
+            <p>
+                In volutpat vehicula purus, vel scelerisque lorem tincidunt et. Nullam pulvinar eros finibus, posuere ante vel, aliquam magna. Mauris facilisis risus non imperdiet accumsan. Curabitur erat tellus, scelerisque in lacinia ac, pulvinar vulputate lorem. Sed erat elit, scelerisque a posuere nec, tempus a nibh. Phasellus enim dolor, pulvinar nec suscipit id, faucibus sed velit. Maecenas augue ante, elementum ut eleifend et, lacinia sed nisi.
+            </p>
+            <p>
+                Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ut magna porta, porttitor nulla sit amet, vestibulum tellus. Sed egestas consequat nibh. In neque felis, porttitor sit amet iaculis eu, facilisis eu purus. Integer accumsan hendrerit purus, at dictum enim pretium nec. Vestibulum nunc sapien, lacinia sit amet ornare ac, elementum nec ligula. In sed tincidunt lorem. Donec non iaculis mauris.
+            </p>
+        </article>
+    </section>
+
+    <section class="container section">
+        <header>
+            <h2 class="title red">Mes compétences</h2>
+        </header>
+
+        <article class="row">
+            <div class="col">
+                <ul><h3>Front-end</h3>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul><h3>Back-end</h3>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul><h3>Autres</h3>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>
+            </div>
+        </article>
+    </section>
 
     <div class="cat-container row">
         {% for category in categories %}

@@ -30,15 +30,13 @@ class PostAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('title')
-            ->add('content')
-        ;
+            ->add('content');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
             ->addIdentifier('title')
-            ->addIdentifier('content')
-        ;
+            ->addIdentifier('content');
     }
 }

@@ -23,8 +23,7 @@ class CommentAdmin extends AbstractAdmin
                 'class' => 'AppBundle\Entity\Post',
                 'property' => 'title'
             ))
-            ->end()
-        ;
+            ->end();
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -32,8 +31,7 @@ class CommentAdmin extends AbstractAdmin
         $datagridMapper
             ->add('name')
             ->add('email')
-            ->add('content')
-         ;
+            ->add('content');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -41,7 +39,6 @@ class CommentAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('name')
             ->addIdentifier('email')
-            ->addIdentifier('content')
-            ;
+            ->addIdentifier('content');
     }
 }

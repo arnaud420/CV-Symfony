@@ -8,18 +8,26 @@
                     <h1 class="text-uppercase">{{ post.title }}</h1>
                 </div>
             </div>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center align-items-center">
+                    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('category_show', {'category_id': category.id}) }}">{{ category.name }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+                </ol>
+            </nav>
         </header>
 
         <main class="container section">
             <article id="article-{{ post.id }}">
                 <div>
-                    {{ post.content }}
+                    {{ post.content |nl2br}}
                 </div>
 
                 <div>
                     {% if images %}
                         {% for image in images %}
-                            <img src="{{asset('uploads/'~image.name)}}">
+                            <img src="{{asset('uploads/'~image.name)}}" class="img">
                             <p class="text-center">{{ image.name }}</p>
                         {% else %}
                             <p>Aucune image</p>
@@ -28,33 +36,45 @@
                 </div>
             </article>
 
-            <div id="comments">
+            <div id="comments" class="container section">
                 <h2>Commentaires</h2>
 
                 {% for comment in comments %}
-                    <p>{{ comment.name }}</p>
+                    <div class="card">
+                        <div class="card-header">
+                            {{ comment.name }}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ comment.content }}</p>
+                            <a href="#comment-form" class="btn btn-primary">Répondre</a>
+                        </div>
+                    </div>
                 {% else %}
                     <p>Aucun commentaire</p>
                 {% endfor %}
 
-                <div class="row">
-                    <div class="col-12">
-                        {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'form-horizontal'}}) }}
-                        {{ form_errors(form) }}
-                        <div class="form-group">
-                            <label>Nom</label>
-                            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                <div class="section">
+                    <h2>Laissez un commentaire</h2>
+
+                    <div class="row section" id="comment-form">
+                        <div class="col-12">
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'form-horizontal'}}) }}
+                            {{ form_errors(form) }}
+                            <div class="form-group">
+                                <label>Nom</label>
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                <label>content</label>
+                                {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                            {{ form_end(form) }}
                         </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-                        <div class="form-group">
-                            <label>content</label>
-                            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
-                        </div>
-                        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
-                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>

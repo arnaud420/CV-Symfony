@@ -1,7 +1,15 @@
 main#home .name-container {
     height: 60vh;
-    background-color: black;
+    background-color: #be1522;
     color: white;
+    background-image: url("../images/keyboard_cofee.jpg");
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 main#home h1 {
     font-size: 6rem;
@@ -10,6 +18,9 @@ main#home h1 {
 }
 main#home h2 {
     font-size: 3rem;
+}
+.red {
+    color: #be1522;
 }
 main#home .cat-container {
     height: 40vh;
@@ -20,7 +31,8 @@ main#home .cat-container.row {
 }
 main#home .col.d-flex.justify-content-center.align-items-center {
     transition: .3s ease-in-out;
-    color: black;
+    color: white;
+    background-color: black;
     text-transform: uppercase;
 }
 main#home .col.d-flex.justify-content-center.align-items-center:hover {
@@ -31,14 +43,19 @@ main#home .col.d-flex.justify-content-center.align-items-center:hover {
 
 section#category header,
 section#post header{
-    height: 10rem;
+    height: 100%;
     background-color: black;
     color: white;
 }
 section#category header .row.justify-content-center.align-items-center,
 section#post header .row.justify-content-center.align-items-center,
 div.container {
-    height: 100%;
+    height: 15rem;
+}
+.breadcrumb {
+    margin: 0;
+    border-radius: 0;
+    background-color: #f5f5f5;
 }
 .card-img-top {
     height: 200px;
@@ -61,4 +78,34 @@ a:hover {
 }
 img {
     max-width: 100%;
+}
+.title {
+    margin-bottom: 1.5rem;
+}
+
+#login-form {
+    padding: 12rem 6rem;
+}
+#login-form > a {
+    display: block;
+    margin-top: 25px;
+    color: #007bff;
+}
+section#post .card {
+    margin: 1rem 0;
+}
+div#comments, div#login-form {
+    height: 100%;
+}
+
+footer {
+    height: 2.5rem;
+    background-color: #be1522;
+    color: white;
+}
+img.img {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 100%;
 }

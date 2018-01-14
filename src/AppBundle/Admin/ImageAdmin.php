@@ -21,8 +21,7 @@ class ImageAdmin extends AbstractAdmin
             ->add('post', 'sonata_type_model', array(
                 'class' => 'AppBundle\Entity\Post',
                 'property' => 'title'
-            ))
-            ;
+            ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

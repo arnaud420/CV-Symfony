@@ -24,6 +24,7 @@ class PostController extends Controller
         if (!$post) {
             throw $this->createNotFoundException('Unable to find Post.');
         }
+        $category = $post->getCategory();
 
         $images = $post->getImages();
 
@@ -44,6 +45,7 @@ class PostController extends Controller
 
         return $this->render('post/show.html.twig', [
             'post' => $post,
+            'category' => $category,
             'comments' => $comments,
             'form' => $form->createView(),
             'images' => $images
