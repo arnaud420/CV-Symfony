@@ -91,7 +91,7 @@ img {
     margin-top: 25px;
     color: #007bff;
 }
-section#post .card {
+section#post .card, main#home section .card {
     margin: 1rem 0;
 }
 div#comments, div#login-form {
